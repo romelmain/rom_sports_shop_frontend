@@ -1,10 +1,11 @@
-import { Navigate } from "react-router-dom";
-import { UserContext } from "../contexts/user.context";
+import { Navigate, useNavigate } from "react-router-dom";
 import "./Login.css";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { login } from "../components/login";
 
 function LoginPage() {
-  const { user, setUser, login, status, setStatus } = useContext(UserContext);
+  const [user, setUser] = useState({ username: "", password: "" });
+  const navigate = useNavigate();
 
   const hamdleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +17,16 @@ function LoginPage() {
     const data = Object.fromEntries(dataArray);
     console.log(data.username);
     console.log(data.password);
-    login();
+    login(data).then((apiResponse) => {
+      if (apiResponse.code == 200) {
+        console.log("OKKK");
+        navigate("/");
+        return;
+      } else {
+        console.log("NO OKKK");
+        console.log(apiResponse.message);
+      }
+    });
   };
 
   const handleUserInput = (e) => {
