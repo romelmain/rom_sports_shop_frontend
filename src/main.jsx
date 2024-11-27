@@ -3,13 +3,15 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { ModalLogoutProviderWrapper } from "./contexts/modallogout.context.jsx";
 
 createRoot(document.getElementById("root")).render(
   //<StrictMode>
-
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
+  <ModalLogoutProviderWrapper>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </ModalLogoutProviderWrapper>
 
   //</StrictMode>,
 );

@@ -4,6 +4,7 @@ import LoginPage from "./pages/LoginPage";
 import ProductsPage from "./pages/ProductsPage";
 import ErrorPage from "./pages/ErrorPage";
 import SettingsPage from "./pages/SettingsPage";
+import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
