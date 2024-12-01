@@ -1,10 +1,17 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Menu from "../components/Menu";
+import { ListProductsContext } from "../contexts/listProducts.context";
 
 function ProductsPage() {
+  const { products, getProducts, error } = useContext(ListProductsContext);
+
+  useEffect(() => {
+    getProducts();
+  }, []);
+
   return (
     <>
       <Menu></Menu>
