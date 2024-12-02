@@ -4,6 +4,7 @@ import Row from "react-bootstrap/Row";
 import Menu from "../components/Menu";
 import { ListProductsContext } from "../contexts/listProducts.context";
 import RowProduct from "../components/RowProduct";
+import "./ProductPage.css";
 
 function ProductsPage() {
   const { products, getProducts, error } = useContext(ListProductsContext);
@@ -14,16 +15,22 @@ function ProductsPage() {
 
   const listProducts = products.map((product) => {
     return (
-      <Row sm={4} key={product.id}>
-        <RowProduct product={product}></RowProduct>
-      </Row>
+      <div key={product.id}>
+        <br />
+        <hr />
+        <Row sm={4}>
+          <RowProduct product={product}></RowProduct>
+        </Row>
+      </div>
     );
   });
 
   return (
     <>
       <Menu></Menu>
-      <Container>{listProducts}</Container>
+      <div id="divpage" className="divpage">
+        <Container>{listProducts}</Container>
+      </div>
     </>
   );
 }
