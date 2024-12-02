@@ -14,7 +14,9 @@ function RowProduct(props) {
 
       <Col sm={6}>
         <Card border="light" style={{ width: "18rem" }}>
-          <Card.Header>{product.name}: 6$</Card.Header>
+          <Card.Header>
+            {product.name}: {product.price} $
+          </Card.Header>
           <Card.Body>
             <Card.Title>Description:</Card.Title>
             <Card.Text>{product.description}</Card.Text>
