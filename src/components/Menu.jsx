@@ -23,7 +23,22 @@ function Menu() {
           <Navbar.Brand href="/">Rom Sport Shop</Navbar.Brand>
           <Nav>
             <Nav.Link href="#">
-              <img width="35px" height="35px" src={empty_cart}></img>
+              {localStorage.getItem("id_cart") == null ||
+              localStorage.getItem("id_cart") == "" ? (
+                <img
+                  id="imgCart"
+                  width="35px"
+                  height="35px"
+                  src={empty_cart}
+                ></img>
+              ) : (
+                <img
+                  id="imgCart"
+                  width="35px"
+                  height="35px"
+                  src={full_cart2}
+                ></img>
+              )}
             </Nav.Link>
             <Nav.Link href="/products">Products</Nav.Link>
             <Nav.Link href="/settings">Settings</Nav.Link>

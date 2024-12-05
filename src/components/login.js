@@ -3,7 +3,7 @@ import axios from "axios";
 export function login(user) {
   let apiResponse = {
     response: false,
-    nessage: "",
+    message: "",
     code: 0,
   };
 
@@ -22,7 +22,7 @@ export function login(user) {
         case 200:
           apiResponse = {
             response: response.data,
-            nessage: "",
+            message: "",
             code: response.status,
           };
           localStorage.setItem("id", response.data.user_id);
@@ -32,7 +32,7 @@ export function login(user) {
         case 403:
           apiResponse = {
             response: response.data,
-            nessage: response.statusText,
+            message: response.statusText,
             code: response.status,
           };
       }
