@@ -6,6 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 import SettingsPage from "./pages/SettingsPage";
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ProductDetail from "./pages/ProductDetail";
+import CartDetail from "./pages/CartDetail";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         path="/products/:id"
         element={<ProductDetail></ProductDetail>}
       ></Route>
+      <Route path="/cart/:id" element={<CartDetail></CartDetail>}></Route>
       <Route path="*" element={<ErrorPage></ErrorPage>}></Route>
     </Routes>
   );

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import ModalLogout from "./modalLogout";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
@@ -15,6 +15,17 @@ import full_cart2 from "../assets/full-react-cart2.png";
 
 function Menu() {
   const { show, setShow, setModal } = useContext(ModalLogoutContext);
+  let navigate = useNavigate();
+
+  const handleClick = () => {
+    const id_cart = localStorage.getItem("id_cart");
+    console.log(id_cart);
+    if (id_cart != null) {
+      navigate(`/cart/${id_cart}`);
+    } else {
+      console.log("No Cart");
+    }
+  };
 
   return (
     <>
@@ -26,6 +37,7 @@ function Menu() {
               {localStorage.getItem("id_cart") == null ||
               localStorage.getItem("id_cart") == "" ? (
                 <img
+                  onClick={handleClick}
                   id="imgCart"
                   width="35px"
                   height="35px"
@@ -33,6 +45,7 @@ function Menu() {
                 ></img>
               ) : (
                 <img
+                  onClick={handleClick}
                   id="imgCart"
                   width="35px"
                   height="35px"
