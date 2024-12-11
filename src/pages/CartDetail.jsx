@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import { useParams } from "react-router-dom";
+import { Container, Row, Col } from "react-bootstrap";
+import "./CartDetail.css";
 
 function CartDetail() {
   const { id } = useParams();
@@ -17,10 +19,28 @@ function CartDetail() {
     getCartDetail(id);
   }, []);
 
+  const products = cart.list_product_price?.map((product) => {
+    return (
+      <div className="textoBlanco" key={product.product.id}>
+        <Row>
+          <Col>
+            <img width="35" height="35" src={product.product.image}></img>
+          </Col>
+          <Col>{product.product.name}</Col>
+          <Col>{product.price}$</Col>
+        </Row>
+      </div>
+    );
+  });
+
   return (
     <>
       <Menu></Menu>
-      <div>CartDetail</div>
+      <center>
+        <div className="textoTitulo">CartDetail: {cart.date}</div>
+        <br></br>
+        <Container>{products}</Container>
+      </center>
     </>
   );
 }
