@@ -5,6 +5,7 @@ import Menu from "../components/Menu";
 import { ListProductsContext } from "../contexts/listProducts.context";
 import RowProduct from "../components/RowProduct";
 import "./ProductPage.css";
+import HeaderComponent from "../components/HeaderComponent";
 
 function ProductsPage() {
   const { products, getProducts, error } = useContext(ListProductsContext);
@@ -29,7 +30,7 @@ function ProductsPage() {
     <>
       <Menu></Menu>
       <center>
-        <div className="textoTitulo">Products</div>
+        <HeaderComponent header="Products"></HeaderComponent>
       </center>
       <div id="divpage" className="divpage">
         <Container>{listProducts}</Container>

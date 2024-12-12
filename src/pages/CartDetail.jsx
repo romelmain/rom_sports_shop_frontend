@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
+import HeaderComponent from "../components/HeaderComponent";
 
 function CartDetail() {
   const { id } = useParams();
@@ -32,11 +33,13 @@ function CartDetail() {
     );
   });
 
+  const header = "CartDetail: " + cart.date;
+
   return (
     <>
       <Menu></Menu>
       <center>
-        <div className="textoTitulo">CartDetail: {cart.date}</div>
+        <HeaderComponent header={header}></HeaderComponent>
         <br></br>
         <Container>{products}</Container>
       </center>

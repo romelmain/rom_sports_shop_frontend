@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Navigate } from "react-router-dom";
 import Menu from "../components/Menu";
+import HeaderComponent from "../components/HeaderComponent";
 
 function HomePage() {
   if (localStorage.getItem("id") == null) {
@@ -12,7 +13,7 @@ function HomePage() {
       <Menu></Menu>
 
       <center>
-        <div className="textoTitulo">HomePage</div>
+        <HeaderComponent header="Home Page"></HeaderComponent>
       </center>
     </>
   );
