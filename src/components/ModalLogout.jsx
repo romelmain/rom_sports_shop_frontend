@@ -13,6 +13,7 @@ function ModalLogout(props) {
     closeModal();
 
     localStorage.removeItem("id");
+    localStorage.removeItem("id_cart");
     navigate("/");
     window.location.reload();
   };

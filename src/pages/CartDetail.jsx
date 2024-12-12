@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import Menu from "../components/Menu";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
-import "./CartDetail.css";
 
 function CartDetail() {
   const { id } = useParams();

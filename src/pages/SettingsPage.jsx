@@ -5,7 +5,9 @@ function SettingsPage() {
   return (
     <>
       <Menu></Menu>
-      <div>SettingsPage</div>
+      <center>
+        <div className="textoTitulo">SettingsPage</div>
+      </center>
     </>
   );
 }

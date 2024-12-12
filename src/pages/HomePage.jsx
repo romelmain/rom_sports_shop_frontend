@@ -11,7 +11,9 @@ function HomePage() {
     <>
       <Menu></Menu>
 
-      <div>HomePage</div>
+      <center>
+        <div className="textoTitulo">HomePage</div>
+      </center>
     </>
   );
 }

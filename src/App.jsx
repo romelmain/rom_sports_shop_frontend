@@ -7,6 +7,7 @@ import SettingsPage from "./pages/SettingsPage";
 import "./../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import ProductDetail from "./pages/ProductDetail";
 import CartDetail from "./pages/CartDetail";
+import "./App.css";
 
 function App() {
   return (

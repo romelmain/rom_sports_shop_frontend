@@ -28,6 +28,9 @@ function ProductsPage() {
   return (
     <>
       <Menu></Menu>
+      <center>
+        <div className="textoTitulo">Products</div>
+      </center>
       <div id="divpage" className="divpage">
         <Container>{listProducts}</Container>
       </div>
