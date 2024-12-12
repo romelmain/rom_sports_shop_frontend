@@ -23,11 +23,15 @@ function CartDetail() {
     return (
       <div className="textoBlanco" key={product.product.id}>
         <Row>
-          <Col>
+          <Col></Col>
+          <Col className="w-25 p-1" style={{ textAlign: "right" }}>
             <img width="35" height="35" src={product.product.image}></img>
           </Col>
           <Col>{product.product.name}</Col>
-          <Col>{product.price}$</Col>
+          <Col style={{ textAlign: "left" }}>
+            <label>{product.price}</label>$
+          </Col>
+          <Col></Col>
         </Row>
       </div>
     );
