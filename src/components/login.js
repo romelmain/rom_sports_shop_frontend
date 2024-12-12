@@ -26,6 +26,10 @@ export function login(user) {
             code: response.status,
           };
           localStorage.setItem("id", response.data.user_id);
+          const id_cart = response.data.id_cart;
+          if (id_cart > 0) {
+            localStorage.setItem("id_cart", id_cart);
+          }
           break;
         case 400:
         case 401:
