@@ -4,7 +4,9 @@ function HeaderComponent(props) {
   return (
     <>
       <center>
-        <div className="textoTitulo">{props.header}</div>
+        <div className="textoTitulo">
+          <strong>{props.header}</strong>
+        </div>
       </center>
     </>
   );

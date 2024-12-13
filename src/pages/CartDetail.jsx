@@ -23,15 +23,17 @@ function CartDetail() {
     return (
       <div className="textoBlanco" key={product.product.id}>
         <Row>
-          <Col></Col>
           <Col className="w-25 p-1" style={{ textAlign: "right" }}>
             <img width="35" height="35" src={product.product.image}></img>
           </Col>
           <Col>{product.product.name}</Col>
-          <Col style={{ textAlign: "left" }}>
+          <Col style={{ textAlign: "center" }}>
             <label>{product.price}</label>$
           </Col>
-          <Col></Col>
+          <Col style={{ textAlign: "center" }}>{product.quantity}</Col>
+          <Col style={{ textAlign: "center" }}>
+            {product.quantity * product.price}$
+          </Col>
         </Row>
       </div>
     );
@@ -45,6 +47,31 @@ function CartDetail() {
       <center>
         <HeaderComponent header={header}></HeaderComponent>
         <br></br>
+        <Container>
+          <Row>
+            <Col></Col>
+            <Col>
+              <label className="textoBlancoEncabezado">
+                <strong>Product</strong>
+              </label>
+            </Col>
+            <Col style={{ textAlign: "center" }}>
+              <label className="textoBlancoEncabezado">
+                <strong>Item Price</strong>
+              </label>
+            </Col>
+            <Col style={{ textAlign: "center" }}>
+              <label className="textoBlancoEncabezado">
+                <strong>Quantity</strong>
+              </label>
+            </Col>
+            <Col style={{ textAlign: "center" }}>
+              <label className="textoBlancoEncabezado">
+                <strong>Price to Pay</strong>
+              </label>
+            </Col>
+          </Row>
+        </Container>
         <Container>{products}</Container>
       </center>
     </>

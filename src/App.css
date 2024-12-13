@@ -1,10 +1,15 @@
 .textoTitulo {
   color: aliceblue;
-  font-weight: 100;
+  font-weight: 300;
   font-size: x-large;
 }
 
 .textoBlanco {
   color: aliceblue;
   font-weight: 100;
+}
+
+.textoBlancoEncabezado {
+  color: rgb(206, 229, 248);
+  font-weight: 500;
 }
