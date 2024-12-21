@@ -3,12 +3,12 @@ import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 
 import Button from "react-bootstrap/Button";
-import { addToCart } from "../components/products";
+import { addToCart } from "./products";
 
 import full_cart2 from "../assets/full-react-cart2.png";
 import { useNavigate } from "react-router-dom";
 
-function RowProduct(props) {
+function ColProduct(props) {
   const { product } = props;
   const imgElement = document.querySelector("#imgCart");
   let navigate = useNavigate();
@@ -36,38 +36,35 @@ function RowProduct(props) {
 
   return (
     <>
-      <Col sm={4}>
-        <img
+      <Card
+        bg="secondary"
+        key="Secondary"
+        text="white"
+        style={{ width: "18rem" }}
+        className="mb-2"
+      >
+        <Card.Img
           id={product.id}
           onClick={handleClick}
-          width="260px"
-          height="260px"
+          variant="top"
           src={product.image}
-        ></img>
-      </Col>
-
-      <Col sm={6}>
-        <Card border="light" style={{ width: "18rem" }}>
-          <Card.Header>
-            {product.name}: {product.price} $
-          </Card.Header>
-          <Card.Body>
-            <Card.Title>Description:</Card.Title>
-            <Card.Text>{product.description}</Card.Text>
-          </Card.Body>
-        </Card>
-      </Col>
-      <Col sm={2}>
-        <Button
-          onClick={requestAddToCart}
-          value={product.id_product_price}
-          variant="primary"
-        >
-          Add to Cart
-        </Button>
-      </Col>
+        />
+        <Card.Body className="text-center">
+          <Card.Title>
+            {product.name}: $ {product.price}
+          </Card.Title>
+          <Card.Text>{product.description}</Card.Text>
+          <Button
+            onClick={requestAddToCart}
+            value={product.id_product_price}
+            variant="primary"
+          >
+            Add to Cart
+          </Button>
+        </Card.Body>
+      </Card>
     </>
   );
 }
 
-export default RowProduct;
+export default ColProduct;
