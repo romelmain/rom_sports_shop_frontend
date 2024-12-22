@@ -25,7 +25,7 @@ function CartDetail() {
     totalPay += product.price * product.quantity;
     return (
       <tr key={product.product.id}>
-        <td>
+        <td align="center">
           <img width="100px" height="100px" src={product.product.image}></img>
         </td>
         <td>{product.product.name}</td>
@@ -56,7 +56,7 @@ function CartDetail() {
         <Container>
           <Table striped bordered hover variant="dark">
             <thead>
-              <tr>
+              <tr align="center">
                 <th></th>
                 <th>Product</th>
                 <th>Item Price</th>
