@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import { addToCart } from "../components/products";
 import full_cart2 from "../assets/full-react-cart2.png";
+import "./ProductsDetail.css";
 
 function ProductDetail() {
   const { id } = useParams();
@@ -49,35 +50,57 @@ function ProductDetail() {
       <br></br>
       <div>
         <Container>
-          <Row sm={4}>
-            <Col sm={4}>
-              <img
-                id={product.id}
-                width="360px"
-                height="360px"
-                src={product.image}
-              ></img>
+          <Row className="row-cols-3">
+            <Col>
+              <Card
+                bg="secondary"
+                key="secondary"
+                text="white"
+                style={{ width: "24rem" }}
+                className="mb-2"
+              >
+                <Card.Img variant="top" src={product.image} />
+              </Card>
             </Col>
-
-            <Col sm={6}>
-              <Card border="light" style={{ width: "18rem" }}>
+            <Col>
+              <Card
+                bg="secondary"
+                key="secondary"
+                text="white"
+                style={{ width: "24rem", height: "24rem" }}
+                className="mb-2"
+              >
                 <Card.Header>
-                  {product.name}: {product.price} $
+                  {product.name}: $ {product.price}
                 </Card.Header>
+
                 <Card.Body>
                   <Card.Title>Description:</Card.Title>
                   <Card.Text>{product.description}</Card.Text>
                 </Card.Body>
+                <Button
+                  variant="primary"
+                  value={product.id_product_price}
+                  onClick={requestAddToCart}
+                >
+                  Add to Cart
+                </Button>
               </Card>
             </Col>
-            <Col sm={2}>
-              <Button
-                onClick={requestAddToCart}
-                value={product.id_product_price}
-                variant="primary"
+            <Col>
+              <Card
+                bg="secondary"
+                key="secondary"
+                text="white"
+                style={{ width: "24rem" }}
+                className="mb-2"
               >
-                Add to Cart
-              </Button>
+                <Card.Img
+                  className="rota-horizontal"
+                  variant="top"
+                  src={product.image}
+                />
+              </Card>
             </Col>
           </Row>
         </Container>

@@ -3,6 +3,7 @@ import Menu from "../components/Menu";
 import { useParams } from "react-router-dom";
 import { Container, Row, Col } from "react-bootstrap";
 import HeaderComponent from "../components/HeaderComponent";
+import Table from "react-bootstrap/Table";
 
 function CartDetail() {
   const { id } = useParams();
@@ -19,27 +20,32 @@ function CartDetail() {
     getCartDetail(id);
   }, []);
 
+  let totalPay = 0;
   const products = cart.list_product_price?.map((product) => {
+    totalPay += product.price * product.quantity;
     return (
-      <div className="textoBlanco" key={product.product.id}>
-        <Row>
-          <Col className="w-25 p-1" style={{ textAlign: "right" }}>
-            <img width="35" height="35" src={product.product.image}></img>
-          </Col>
-          <Col>{product.product.name}</Col>
-          <Col style={{ textAlign: "center" }}>
-            <label>{product.price}</label>$
-          </Col>
-          <Col style={{ textAlign: "center" }}>{product.quantity}</Col>
-          <Col style={{ textAlign: "center" }}>
-            {product.quantity * product.price}$
-          </Col>
-        </Row>
-      </div>
+      <tr key={product.product.id}>
+        <td>
+          <img width="100px" height="100px" src={product.product.image}></img>
+        </td>
+        <td>{product.product.name}</td>
+        <td>$ {product.price}</td>
+        <td>{product.quantity}</td>
+        <td>$ {product.price * product.quantity}</td>
+      </tr>
     );
   });
 
-  const header = "CartDetail: " + cart.date;
+  const total = (
+    <tr>
+      <td colSpan="4" align="right">
+        <strong>Total:</strong>
+      </td>
+      <td className="totalPay">$ {totalPay}</td>
+    </tr>
+  );
+
+  const header = "CartDetail total: $ " + totalPay;
 
   return (
     <>
@@ -48,31 +54,22 @@ function CartDetail() {
         <HeaderComponent header={header}></HeaderComponent>
         <br></br>
         <Container>
-          <Row>
-            <Col></Col>
-            <Col>
-              <label className="textoBlancoEncabezado">
-                <strong>Product</strong>
-              </label>
-            </Col>
-            <Col style={{ textAlign: "center" }}>
-              <label className="textoBlancoEncabezado">
-                <strong>Item Price</strong>
-              </label>
-            </Col>
-            <Col style={{ textAlign: "center" }}>
-              <label className="textoBlancoEncabezado">
-                <strong>Quantity</strong>
-              </label>
-            </Col>
-            <Col style={{ textAlign: "center" }}>
-              <label className="textoBlancoEncabezado">
-                <strong>Price to Pay</strong>
-              </label>
-            </Col>
-          </Row>
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Item Price</th>
+                <th>Quantity</th>
+                <th>Price to Pay</th>
+              </tr>
+            </thead>
+            <tbody>
+              {products}
+              {total}
+            </tbody>
+          </Table>
         </Container>
-        <Container>{products}</Container>
       </center>
     </>
   );
