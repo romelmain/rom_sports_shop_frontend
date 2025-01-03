@@ -6,11 +6,8 @@ import Navbar from "react-bootstrap/Navbar";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import ModalLogout from "./modalLogout";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import { ModalLogoutContext } from "../contexts/modallogout.context";
 import empty_cart from "../assets/empty-react-cart.png";
-import full_cart from "../assets/full-react-cart.png";
 import full_cart2 from "../assets/full-react-cart2.png";
 
 function Menu() {
